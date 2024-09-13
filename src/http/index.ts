@@ -10,7 +10,7 @@ enum MSGS {
 
 // 创建http实例
 const $http = axios.create({
-  baseURL: "https://www.fastmock.site/mock/b0d0cd1b75db24b8a32f9942bfb34988/api",
+  baseURL: "https://dev.usemock.com/66e040d4ac8536210ab29f53",
   timeout: 2000,
   headers: {
     "Content-Type": "application/json;charset=utf-8"
@@ -19,8 +19,6 @@ const $http = axios.create({
 
 // 请求拦截
 $http.interceptors.request.use(config => {
-  console.log('config', config);
-  
   config.headers = config.headers || {}
   if(localStorage.getItem('token')) {
     config.headers.token = localStorage.getItem("token") || ""

@@ -16,13 +16,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs, ref } from 'vue'
+import { defineComponent, reactive, toRefs } from 'vue'
 import { InitData } from '../types/login'
 import type { FormInstance } from 'element-plus'
+import { login } from "../http/api";
+
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   setup() {
     const data = reactive(new InitData())
+    const router = useRouter()
 
     const rules = {
       userName: [
@@ -39,7 +43,11 @@ export default defineComponent({
       if (!loginFormRef) return
       loginFormRef.validate((valid: boolean) => {
         if (valid) {
-          alert('验证通过，发送请求')
+          login(data.loginForm).then(res=>{
+            localStorage.setItem("token", res.data.token)
+            router.push('/')
+          })
+          
         }
       })
     }

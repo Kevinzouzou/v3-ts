@@ -5,8 +5,28 @@ interface loginData {
   password: string
 }
 
+// 登录
 export const login = (data: loginData) => $http({
   url: '/login',
   method: 'post',
   data
+})
+
+// 订单列表
+export const getList = (data: any) => $http({
+  url: '/getList',
+  method: 'get',
+  data
+})
+
+// 用户列表
+export const getUserList = () => $http({
+  url: '/getUserList',
+  method: 'get'
+})
+
+// 角色列表
+export const getRoleList = () => $http({
+  url: '/getRoleList',
+  method: 'get'
 })
