@@ -30,3 +30,15 @@ export const getRoleList = () => $http({
   url: '/getRoleList',
   method: 'get'
 })
+
+// 权限列表
+export const getAuthority = () => $http({
+  url: '/getAuthority',
+  method: 'get'
+})
+
+// 路由列表
+export const getRouter = () => $http({
+  url: '/getRouter',
+  method: 'get'
+})

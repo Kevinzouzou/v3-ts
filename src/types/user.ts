@@ -4,6 +4,12 @@ export interface ListInt {
   userName: string,
   role: RoleInt[]
 }
+export interface ActiveInt {
+  id: number,
+  nikeName: string,
+  userName: string,
+  role: number[]
+}
 
 interface RoleInt {
   role: number,
@@ -29,10 +35,11 @@ export class InitData {
   list: [ListInt][] = []
   listData: [ListInt][] = []
   roleList: RoleListInt[] = []
-  active: ListInt = {
+  active: ActiveInt = {
     id: 0,
     nikeName: '',
     userName: '',
     role: []
   }
+  isShow = false
 }
